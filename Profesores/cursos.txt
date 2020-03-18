@@ -1,0 +1,7 @@
+1E,SMR tarde
+1F,SMR Tarde
+1S,DAW Semipresencial
+2S,Daw Semipresencial
+1W,DAW Tarde
+1G,SMR Tarde
+1D,SMR Mañana
