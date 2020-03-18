@@ -21,7 +21,7 @@ import java.util.logging.Logger;
  */
 public class Cursos {
     
-    public static final String DIRECTORY = "Profesores\\";
+    public static final String DIRECTORY = "..\\Profesores\\";
     public static final String CURSOFILENAME = "cursos.txt";
     public static final String FILEPATH = DIRECTORY + CURSOFILENAME;
     
@@ -31,10 +31,11 @@ public class Cursos {
     /**
      * @param args the command line arguments
      */
-    
+     
     
     public static void main(String[] args) {
-        // TODO code application logic here        
+        // TODO code application logic here 
+        TablasCursos.cargaCursos(tmCC);
         subMenuCurso();
     }
     
@@ -317,7 +318,6 @@ public class Cursos {
                     break;
             }
             
-        }while(continuar);
-        
+        }while(continuar);        
     }     
 }  
