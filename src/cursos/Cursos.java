@@ -12,7 +12,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.Scanner;
-import java.util.TreeMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 /**
@@ -33,7 +32,7 @@ public class Cursos {
      
     
     public static void main(String[] args) {
-        // TODO code application logic here        
+        // TODO code application logic here 
         subMenuCurso();
     }
     
@@ -63,6 +62,9 @@ public class Cursos {
                 if (codCurso.trim().isEmpty()) {
                     throw new Exception("El código del curso es erroneo.");
                 }
+                
+                crearFichero(DIRECTORY, CURSOFILENAME); //creamos un nuevo fichero si no existe
+                
                 fichero = new RandomAccessFile(FILEPATH, "r");
                 
                 if(fichero.length() == 0) throw new Exception("El fichero de los cursos se encuentra vacio.");
@@ -165,10 +167,14 @@ public class Cursos {
         FileReader fr = null;
         BufferedReader entrada = null;
         StringBuilder cursos = new StringBuilder();
-        try {            
-            fr = new FileReader(FILEPATH);
+        try {
+            crearFichero(DIRECTORY, CURSOFILENAME); //creamos un nuevo fichero si no existe
+            fr = new FileReader(FILEPATH);            
             entrada = new BufferedReader(fr);
             cadena = entrada.readLine();
+            
+            if(cadena == null) throw new IOException("El fichero se encuentra vacio.");
+            
             while(cadena != null){
                 cursos.append(cadena);
                 cursos.append("\n");
@@ -177,7 +183,7 @@ public class Cursos {
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Cursos.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
-            Logger.getLogger(Cursos.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("\n\tExcepción: " + ex.getMessage());
         } finally {
             try {
                 if (fr != null) {
