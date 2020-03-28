@@ -25,7 +25,6 @@ public class Cursos {
     public static final String CURSOFILENAME = "cursos.txt";
     public static final String FILEPATH = DIRECTORY + CURSOFILENAME;
     
-    static TreeMap<String, String> tmCC = new TreeMap<String, String>();//Map con nombres de cursos
     
     static Scanner sc = new Scanner(System.in);
     /**
@@ -34,8 +33,7 @@ public class Cursos {
      
     
     public static void main(String[] args) {
-        // TODO code application logic here 
-        //TablasCursos.cargaCursos(tmCC);
+        // TODO code application logic here        
         subMenuCurso();
     }
     
